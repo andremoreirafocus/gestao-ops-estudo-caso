@@ -1,0 +1,59 @@
+%% AS-IS v3 — Planejamento de demanda e abastecimento farmacêutico
+%% Fonte exclusiva: quadro-cenario-problema-farmaceutica.md
+%% Não há atores, critérios, tempos ou sistemas adicionados além dos explicitamente citados.
+
+flowchart TB
+    subgraph COM[Comercial]
+        C1[Informa expectativa de vendas]
+    end
+
+    subgraph MKT[Marketing]
+        M1[Etapa 1 — Coleta expectativa de vendas<br/>com a equipe comercial para projetar<br/>as vendas dos próximos 24 meses]
+        M2[Etapa 2 — Consolida os dados e faz ajustes finos<br/>para informar a expectativa de vendas ao Supply Chain<br/>Pode colocar gorduras ou cortar volumes]
+        M3[Recebe restrições/delays conhecidos<br/>e alinha com Supply Chain Local]
+        ME[Identifica sinais de movimentos não usuais:<br/>falta de produto da concorrência, surtos de doenças,<br/>licitações / bids]
+    end
+
+    subgraph LSC[Supply Chain Local]
+        L1[Etapa 3 — Consolida dados do Marketing e<br/>compara com plano financeiro]
+        L2[Avalia, junto ao Supply Chain Global,<br/>a disponibilidade de estoques]
+        L3[Informa ao Marketing as restrições / delays já sabidos]
+        L4[Envia ao Supply Chain Global os volumes<br/>no sistema AURA, com prazo mensal de submissão]
+        L5[Após alteração na programação, alinha com o<br/>Marketing local os impactos e planos de mitigação]
+        LE[Com Supply Chain Global, busca alternativas<br/>para capturar oportunidades ou mitigar riscos]
+    end
+
+    subgraph GSC[Supply Chain Global]
+        G1[Participa da avaliação da disponibilidade de estoques]
+        G2[Etapa 4 — Recebe o planejamento de vendas e<br/>trabalha junto às fábricas para garantir que a produção<br/>atenda aos forecasts de vendas]
+        G3[Informa alteração na programação<br/>ao Supply Chain Local]
+        GE[Com Supply Chain Local, busca alternativas<br/>para capturar oportunidades ou mitigar riscos]
+    end
+
+    subgraph FAB[Fábricas]
+        F1[Produção para atender aos forecasts de vendas]
+    end
+
+    subgraph LOG[Operador Logístico]
+        O1[Recebe o produto após envio por navio ou aéreo,<br/>desembaraço e transporte]
+        O2[Produto disponível para venda]
+    end
+
+    C1 --> M1 --> M2 --> L1 --> L2 --> L3 --> M3 --> L4 --> G2 --> F1 --> O1 --> O2
+    G1 --> L2
+    L2 --> G1
+    G2 --> G3 --> L5
+
+    ME --> LE
+    ME --> GE
+    LE --> GE
+
+    PB1[Problema informado:<br/>perda de receita por falta de produto<br/>para atender a demanda do mercado]
+    PB2[Problema informado:<br/>perda financeira por destruição de produto vencido<br/>antes de ser comercializado]
+
+    classDef activity fill:#F3F4F6,stroke:#475569,color:#111827;
+    classDef problem fill:#FEE2E2,stroke:#DC2626,color:#7F1D1D;
+    classDef output fill:#DCFCE7,stroke:#16A34A,color:#111827;
+    class C1,M1,M2,M3,ME,L1,L2,L3,L4,L5,LE,G1,G2,G3,GE,F1,O1 activity;
+    class O2 output;
+    class PB1,PB2 problem;

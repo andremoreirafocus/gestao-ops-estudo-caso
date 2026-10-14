@@ -1,0 +1,44 @@
+%% AS-IS v2 — Planejamento de demanda e abastecimento farmacêutico
+%% Estrutura inspirada no exemplo da Aula 03, p. 28: Inputs → Processing → Output.
+%% * ator inferido logicamente a partir do cenário.
+
+flowchart LR
+    subgraph IN[INPUTS]
+        direction TB
+        I1[Forecast de vendas para 24 meses<br/><i>Marketing + Comercial</i>]
+        I2[Plano financeiro, estoque e restrições<br/><i>Financeiro* + Supply Chain Local/Global</i>]
+        I3[Eventos extraordinários<br/><i>Marketing</i>]
+    end
+
+    subgraph PR[PROCESSING — planejamento e abastecimento]
+        direction TB
+        P1["1. Consolidar dados e realizar ajustes finos manuais<br/><i>Marketing</i><br/><b>⚠ Pain point 1:</b> ajustes podem divergir da expectativa comercial e do histórico"]
+        P2["2. Consolidar forecast, confrontar plano financeiro/estoque<br/>e alinhar restrições e mitigação<br/><i>Supply Chain Local + Marketing</i><br/><b>⚠ Pain point 2 / gargalo:</b> conciliação pode gerar espera e retrabalho"]
+        P3["3. Avaliar capacidade global, buscar alternativas em eventos<br/>extraordinários e definir volumes<br/><i>Supply Chain Global + Fábricas</i>"]
+        P4["4. Registrar/submeter volumes mensalmente no AURA e<br/>programar produção<br/><i>AURA + Supply Chain Global + Fábricas</i><br/><b>⚠ Pain point 3 / espera:</b> ciclo mensal e lead time reduzem a resposta à demanda"]
+        P5["5. Produzir, transportar, desembaraçar e receber produto<br/><i>Fábricas + Transporte/Desembaraço* + Operador Logístico</i>"]
+    end
+
+    subgraph OUT[OUTPUT]
+        O1[Produto disponível para venda<br/><i>Operador Logístico</i>]
+    end
+
+    I1 -. informação .-> P1
+    I2 -. informação .-> P2
+    I3 -. sinalização .-> P2
+    P1 -. forecast .-> P2
+    P2 -. volumes consolidados .-> P3
+    P3 -. volumes definidos .-> P4
+    P4 -. programação .-> P5
+    P5 == fluxo físico ==> O1
+    P3 -. impactos e mitigação .-> P2
+    P4 -. alteração de programação .-> P2
+
+    classDef input fill:#E8F3FF,stroke:#2563EB,color:#111827;
+    classDef process fill:#F3F4F6,stroke:#475569,color:#111827;
+    classDef pain fill:#FEE2E2,stroke:#DC2626,color:#7F1D1D;
+    classDef output fill:#DCFCE7,stroke:#16A34A,color:#111827;
+    class I1,I2,I3 input;
+    class P3,P5 process;
+    class P1,P2,P4 pain;
+    class O1 output;
