@@ -14,8 +14,8 @@ flowchart LR
 
     subgraph MC[RAIA — Comercial e Marketing]
         direction TB
-        M1[1. Coletar expectativa de vendas e<br/>projetar os próximos 24 meses<br/><i>Marketing + Comercial | mensal</i>]
-        M2[2. Consolidar dados, fazer ajustes finos e<br/>inserir previsão de demanda no AERA<br/><i>Gerente de Marketing | mensal</i>]
+        M1[1. Coletar expectativa de vendas e<br/>projetar os próximos 24 meses<br/><i>Marketing + Comercial — mensal</i>]
+        M2[2. Consolidar dados, fazer ajustes finos e<br/>inserir previsão de demanda no AERA<br/><i>Gerente de Marketing — mensal</i>]
         M3[Alinhar restrições/delays com Supply Chain Local<br/>e assumir risco de eventuais perdas<br/><i>Marketing</i>]
     end
 
@@ -28,7 +28,7 @@ flowchart LR
         L1[3. Realizar sanity check da base geral<br/>contra histórico de demanda e compromisso financeiro<br/><i>Supply Chain Local</i>]
         L2[Avaliar disponibilidade de estoque local/global<br/>e capacidade de produção com Supply Chain Global<br/><i>Supply Chain Local + Global</i>]
         L3[Informar restrições/delays conhecidos e<br/>alinhar com Marketing<br/><i>Supply Chain Local</i>]
-        L4[Enviar volumes ao Supply Chain Global<br/><i>Supply Chain Local | mensal</i>]
+        L4[Enviar volumes ao Supply Chain Global<br/><i>Supply Chain Local — mensal</i>]
         L5[Definir estratégia logística e conduzir o<br/>desembaraço via despachante contratado<br/><i>Supply Chain Local</i>]
     end
 
