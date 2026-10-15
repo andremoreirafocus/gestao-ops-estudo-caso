@@ -8,7 +8,7 @@ Implantar no AERA, no ciclo mensal de previsão de demanda, as mudanças das eta
 
 1. Gerar proposta inicial de forecast a partir do planejamento financeiro aprovado, com granularidade de SKU.
 2. Permitir que Marketing avalie a proposta e solicite ajustes com valor, justificativa e comentário.
-3. Aplicar a regra de autorização definida pelo Supply Chain Global para cada solicitação de ajuste.
+3. Autorizar uma alteração solicitada pelo Marketing somente quando seu valor for superior ao limite mínimo previamente definido pelo Supply Chain Global.
 4. Reter solicitações aprovadas e negadas para consulta, auditoria e análise posterior.
 5. Consolidar o resultado do fluxo para gerar Lost Sales, D&O, análise de risco e assertividade do forecast frente ao planejamento financeiro.
 
