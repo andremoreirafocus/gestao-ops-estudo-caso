@@ -13,7 +13,9 @@ O escopo da melhoria está nas etapas 1 e 2 do processo de previsão de demanda.
 | Cenário consolidado | [quadro-cenario-problema-farmaceutica-v3.md](quadro-cenario-problema-farmaceutica-v3.md) | Fonte do problema, processo atual, TO-BE, métricas de sucesso e dados ainda não fornecidos. |
 | Mapa AS-IS | [Imagem PNG](as-is-v4.png) · [Fonte Mermaid](as-is-v4.mn) | Mapeamento do estado atual com entradas, atividades, responsáveis em raias, saída, pontos de dor, desperdício e lead time informado. |
 | Mapa TO-BE | [Imagem PNG](to-be-v1.png) · [Fonte Mermaid](to-be-v1.mn) | Mapa futuro. As etapas alteradas estão em verde; as etapas mantidas estão em cinza. |
-| Plano de ação | [planejamento-implementacao-to-be.md](planejamento-implementacao-to-be.md) | Planejamento de implementação: regras, métricas, configuração do AERA, testes, treinamento, entrada em operação, monitoramento e riscos. |
+| Plano de ação | [planejamento-implementacao-to-be-v4.md](planejamento-implementacao-to-be-v4.md) | Plano vigente: Gate 0, configuração do AERA, testes, simulação, treinamento, contingência, estabilização e riscos com condição de superação e decisão. |
+| Critérios de avaliação | [criterios-avaliacao-plano-acao.md](criterios-avaliacao-plano-acao.md) | Critérios derivados das aulas para validar o plano de ação. |
+| Análise de conformidade | [analise-conformidade-plano-acao.md](analise-conformidade-plano-acao.md) | Avaliação do plano v2 que fundamentou a revisão para as versões v3 e v4. |
 
 ## Estrutura recomendada da apresentação
 
@@ -29,15 +31,15 @@ O escopo da melhoria está nas etapas 1 e 2 do processo de previsão de demanda.
 3. **TO-BE**
    - Apresentar [to-be-v1.png](to-be-v1.png).
    - Explicar que o AERA passará a gerar a proposta inicial de forecast a partir do planejamento financeiro por SKU.
-   - Explicar que ajustes de Marketing deverão ser materiais, justificados e comentados, segundo o limite mínimo definido pelo Supply Chain Global.
+   - Explicar que os ajustes de Marketing devem ser justificados e comentados e seguem a regra de autorização definida pelo Supply Chain Global.
 
 4. **Resultados esperados e indicadores**
    - Métricas definidas no caso: nível de D&O e nível de Lost Sales.
-   - Antes da apresentação final, registrar fórmula, baseline, meta, fonte e periodicidade de cada métrica.
+   - O Gate 0 do plano prevê registrar fórmula, baseline, meta, fonte e periodicidade de cada métrica antes da produção.
 
 5. **Plano de ação, riscos e desafios**
-   - Usar [planejamento-implementacao-to-be.md](planejamento-implementacao-to-be.md).
-   - Destacar a definição de materialidade, a disponibilidade do planejamento financeiro por SKU, a qualidade das justificativas e a definição das métricas como condições de implantação.
+   - Usar [planejamento-implementacao-to-be-v4.md](planejamento-implementacao-to-be-v4.md).
+   - Destacar a regra de autorização, a disponibilidade do planejamento financeiro por SKU, a qualidade das justificativas, a definição das métricas e as condições para superação dos riscos.
 
 ## Fontes de orientação acadêmica
 
