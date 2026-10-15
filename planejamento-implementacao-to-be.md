@@ -21,16 +21,54 @@ As etapas 3 a 5 permanecem como estão. Elas continuarão recebendo o resultado 
 
 ## 3. Plano de implementação
 
-| Fase | Atividades | Responsáveis envolvidos | Entregável / critério de saída |
-|---|---|---|---|
-| 1. Definição das regras | Definir o que caracteriza um ajuste material; estabelecer o limite mínimo; definir quando há autorização e quem a realiza no Supply Chain Global; padronizar o texto mínimo de justificativa e comentário. | Marketing; Supply Chain Global; Supply Chain Local | Regra de negócio aprovada e pronta para configuração no AERA. |
-| 2. Definição das métricas | Registrar a definição de D&O e Lost Sales: fórmula, granularidade, fonte, periodicidade, responsável, baseline e meta. | Marketing; Supply Chain Local; Supply Chain Global; Financeiro | Ficha de indicadores aprovada. |
-| 3. Preparação dos dados | Validar a disponibilidade do planejamento financeiro por SKU para uso na proposta inicial do AERA; definir o período de referência e os campos necessários. | Financeiro; unidade de negócio; responsável pelo AERA a designar | Dados de planejamento financeiro por SKU validados para carga/consulta. |
-| 4. Configuração do AERA | Configurar a geração da proposta inicial por SKU; tela/fluxo de solicitação de ajuste; campos de justificativa e comentário; registro de valor original, valor solicitado e decisão; regra de limite mínimo e autorização. | Responsável pelo AERA a designar; Marketing; Supply Chain Global | Ambiente configurado e trilha de alterações disponível para teste. |
-| 5. Teste integrado | Testar um ciclo mensal completo: proposta do AERA, avaliação de Marketing, ajuste, aplicação da regra de materialidade, autorização e consolidação da previsão. Conferir que a saída continua utilizável pelo *sanity check* de Supply Chain. | Marketing; Supply Chain Local; Supply Chain Global; Financeiro; responsável pelo AERA a designar | Casos de teste aprovados e pendências críticas corrigidas. |
-| 6. Preparação das pessoas | Orientar gerentes de Marketing sobre a proposta inicial, solicitação de ajuste, justificativa e comentário; orientar Supply Chain Global sobre a autorização; divulgar a mudança no ciclo mensal. | Marketing; Supply Chain Global; Supply Chain Local | Materiais de orientação e responsáveis treinados. |
-| 7. Entrada em operação | Executar o primeiro ciclo mensal no novo fluxo; manter acompanhamento reforçado das solicitações e decisões. | Marketing; Supply Chain Local; Supply Chain Global | Primeiro ciclo concluído no AERA pelo novo processo. |
-| 8. Monitoramento e estabilização | Acompanhar D&O e Lost Sales conforme a ficha de indicadores; revisar ajustes, justificativas e autorizações; corrigir regras ou configuração quando houver desvio operacional. | Marketing; Supply Chain Local; Supply Chain Global; Financeiro | Avaliação do ciclo e decisões de estabilização registradas. |
++--------------------------------+----------------------------------------------+--------------------------------------------------+------------------------------------------------------------------+
+| Fase                           | Atividades                                   | Responsáveis envolvidos                          | Entregável / critério de saída                                   |
++================================+==============================================+==================================================+==================================================================+
+| 1. Definição das regras        | Definir o que caracteriza um ajuste          | Marketing; Supply Chain Global; Supply Chain     | Regra de negócio aprovada e pronta para configuração no AERA.    |
+|                                | material; estabelecer o limite mínimo;       | Local                                            |                                                                  |
+|                                | definir quando há autorização e quem a       |                                                  |                                                                  |
+|                                | realiza no Supply Chain Global; padronizar o |                                                  |                                                                  |
+|                                | texto mínimo de justificativa e comentário.  |                                                  |                                                                  |
++--------------------------------+----------------------------------------------+--------------------------------------------------+------------------------------------------------------------------+
+| 2. Definição das métricas      | Registrar a definição de D&O e Lost Sales:   | Marketing; Supply Chain Local; Supply Chain      | Ficha de indicadores aprovada.                                   |
+|                                | fórmula, granularidade, fonte,               | Global; Financeiro                               |                                                                  |
+|                                | periodicidade, responsável, baseline e meta. |                                                  |                                                                  |
++--------------------------------+----------------------------------------------+--------------------------------------------------+------------------------------------------------------------------+
+| 3. Preparação dos dados        | Validar a disponibilidade do planejamento    | Financeiro; unidade de negócio; responsável pelo | Dados de planejamento financeiro por SKU validados para          |
+|                                | financeiro por SKU para uso na proposta      | AERA a designar                                  | carga/consulta.                                                  |
+|                                | inicial do AERA; definir o período de        |                                                  |                                                                  |
+|                                | referência e os campos necessários.          |                                                  |                                                                  |
++--------------------------------+----------------------------------------------+--------------------------------------------------+------------------------------------------------------------------+
+| 4. Configuração do AERA        | Configurar a geração da proposta inicial por | Responsável pelo AERA a designar; Marketing;     | Ambiente configurado e trilha de alterações disponível para      |
+|                                | SKU; tela/fluxo de solicitação de ajuste;    | Supply Chain Global                              | teste.                                                           |
+|                                | campos de justificativa e comentário;        |                                                  |                                                                  |
+|                                | registro de valor original, valor solicitado |                                                  |                                                                  |
+|                                | e decisão; regra de limite mínimo e          |                                                  |                                                                  |
+|                                | autorização.                                 |                                                  |                                                                  |
++--------------------------------+----------------------------------------------+--------------------------------------------------+------------------------------------------------------------------+
+| 5. Teste integrado             | Testar um ciclo mensal completo: proposta do | Marketing; Supply Chain Local; Supply Chain      | Casos de teste aprovados e pendências críticas corrigidas.       |
+|                                | AERA, avaliação de Marketing, ajuste,        | Global; Financeiro; responsável pelo AERA a      |                                                                  |
+|                                | aplicação da regra de materialidade,         | designar                                         |                                                                  |
+|                                | autorização e consolidação da previsão.      |                                                  |                                                                  |
+|                                | Conferir que a saída continua utilizável     |                                                  |                                                                  |
+|                                | pelo *sanity check* de Supply Chain.         |                                                  |                                                                  |
++--------------------------------+----------------------------------------------+--------------------------------------------------+------------------------------------------------------------------+
+| 6. Preparação das pessoas      | Orientar gerentes de Marketing sobre a       | Marketing; Supply Chain Global; Supply Chain     | Materiais de orientação e responsáveis treinados.                |
+|                                | proposta inicial, solicitação de ajuste,     | Local                                            |                                                                  |
+|                                | justificativa e comentário; orientar Supply  |                                                  |                                                                  |
+|                                | Chain Global sobre a autorização; divulgar a |                                                  |                                                                  |
+|                                | mudança no ciclo mensal.                     |                                                  |                                                                  |
++--------------------------------+----------------------------------------------+--------------------------------------------------+------------------------------------------------------------------+
+| 7. Entrada em operação         | Executar o primeiro ciclo mensal no novo     | Marketing; Supply Chain Local; Supply Chain      | Primeiro ciclo concluído no AERA pelo novo processo.             |
+|                                | fluxo; manter acompanhamento reforçado das   | Global                                           |                                                                  |
+|                                | solicitações e decisões.                     |                                                  |                                                                  |
++--------------------------------+----------------------------------------------+--------------------------------------------------+------------------------------------------------------------------+
+| 8. Monitoramento e             | Acompanhar D&O e Lost Sales conforme a ficha | Marketing; Supply Chain Local; Supply Chain      | Avaliação do ciclo e decisões de estabilização registradas.      |
+| estabilização                  | de indicadores; revisar ajustes,             | Global; Financeiro                               |                                                                  |
+|                                | justificativas e autorizações; corrigir      |                                                  |                                                                  |
+|                                | regras ou configuração quando houver desvio  |                                                  |                                                                  |
+|                                | operacional.                                 |                                                  |                                                                  |
++--------------------------------+----------------------------------------------+--------------------------------------------------+------------------------------------------------------------------+
 
 ## 4. Fluxo futuro a ser implantado
 
@@ -53,13 +91,25 @@ As etapas 3 a 5 permanecem como estão. Elas continuarão recebendo o resultado 
 
 ## 6. Riscos e controles
 
-| Risco | Consequência | Controle proposto |
-|---|---|---|
-| Planejamento financeiro por SKU indisponível, incompleto ou inconsistente | O AERA não consegue gerar proposta inicial confiável. | Validar os dados antes da configuração e aprovar critério de qualidade. |
-| Limite de materialidade inadequado | Excesso de autorizações ou ajustes relevantes sem controle. | Testar a regra em casos representativos e revisar após os primeiros ciclos. |
-| Justificativas genéricas | Perde-se a rastreabilidade pretendida pelo TO-BE. | Padronizar campos mínimos e revisar uma amostra de solicitações no início. |
-| Atraso de autorização | O ciclo mensal pode atrasar. | Definir responsável, prazo e fluxo de tratamento de pendências antes da entrada em operação. |
-| D&O e Lost Sales sem definição ou baseline | Não será possível demonstrar resultado esperado. | Aprovar a ficha de indicadores antes do primeiro ciclo no novo fluxo. |
++--------------------------------+---------------------------------------------------------+------------------------------------------------------------------+
+| Risco                          | Consequência                                            | Controle proposto                                                |
++================================+=========================================================+==================================================================+
+| Planejamento financeiro por    | O AERA não consegue gerar proposta inicial confiável.   | Validar os dados antes da configuração e aprovar critério de     |
+| SKU indisponível, incompleto   |                                                         | qualidade.                                                       |
+| ou inconsistente               |                                                         |                                                                  |
++--------------------------------+---------------------------------------------------------+------------------------------------------------------------------+
+| Limite de materialidade        | Excesso de autorizações ou ajustes relevantes sem       | Testar a regra em casos representativos e revisar após os        |
+| inadequado                     | controle.                                               | primeiros ciclos.                                                |
++--------------------------------+---------------------------------------------------------+------------------------------------------------------------------+
+| Justificativas genéricas       | Perde-se a rastreabilidade pretendida pelo TO-BE.       | Padronizar campos mínimos e revisar uma amostra de solicitações  |
+|                                |                                                         | no início.                                                       |
++--------------------------------+---------------------------------------------------------+------------------------------------------------------------------+
+| Atraso de autorização          | O ciclo mensal pode atrasar.                            | Definir responsável, prazo e fluxo de tratamento de pendências   |
+|                                |                                                         | antes da entrada em operação.                                    |
++--------------------------------+---------------------------------------------------------+------------------------------------------------------------------+
+| D&O e Lost Sales sem definição | Não será possível demonstrar resultado esperado.        | Aprovar a ficha de indicadores antes do primeiro ciclo no novo   |
+| ou baseline                    |                                                         | fluxo.                                                           |
++--------------------------------+---------------------------------------------------------+------------------------------------------------------------------+
 
 ## 7. Evidências de implantação
 
