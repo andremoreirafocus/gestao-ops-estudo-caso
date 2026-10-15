@@ -1,0 +1,68 @@
+%% TO-BE v1 — Planejamento de demanda e abastecimento farmacêutico
+%% Fonte: quadro-cenario-problema-farmaceutica-v3.md
+%% Verde = etapas alteradas (1 e 2). Cinza = etapas mantidas como estão.
+
+flowchart LR
+    subgraph IN[ENTRADAS]
+        direction TB
+        I1[Planejamento financeiro<br/>com granularidade de SKU]
+        I2[Percepção atual do mercado<br/><i>Marketing</i>]
+    end
+
+    subgraph AERA[RAIA — Sistema AERA]
+        direction TB
+        A1["1. Gerar proposta inicial de forecast<br/>com base no planejamento financeiro por SKU<br/><i>ETAPA ALTERADA</i>"]
+        A2[Consolidar forecast aprovado e<br/>registrar o ajuste solicitado<br/><i>ETAPA ALTERADA</i>]
+    end
+
+    subgraph MKT[RAIA — Marketing]
+        direction TB
+        M1["2. Avaliar a proposta inicial do AERA<br/><i>ETAPA ALTERADA</i>"]
+        M2["Solicitar ajuste material, justificado e comentado,<br/>conforme percepção realista do mercado<br/><i>ETAPA ALTERADA</i>"]
+    end
+
+    subgraph GSC[RAIA — Supply Chain Global]
+        direction TB
+        G0["Definir limite mínimo para a regra<br/>de autorização de ajustes<br/><i>ETAPA ALTERADA</i>"]
+        G1[Planejar o atendimento ao forecast e<br/>trabalhar com as fábricas<br/><i>ETAPA MANTIDA</i>]
+        G2[Informar alteração de programação ao<br/>Supply Chain Local<br/><i>ETAPA MANTIDA</i>]
+    end
+
+    subgraph SCL[RAIA — Supply Chain Local]
+        direction TB
+        L1[Realizar sanity check contra histórico de demanda<br/>e compromisso financeiro<br/><i>ETAPA MANTIDA</i>]
+        L2[Avaliar estoque local/global e capacidade<br/>de produção com Supply Chain Global<br/><i>ETAPA MANTIDA</i>]
+        L3[Informar restrições/delays e alinhar<br/>com Marketing<br/><i>ETAPA MANTIDA</i>]
+        L4[Enviar volumes ao Supply Chain Global<br/><i>ETAPA MANTIDA</i>]
+        L5[Definir estratégia logística e conduzir<br/>o desembaraço via despachante<br/><i>ETAPA MANTIDA</i>]
+    end
+
+    subgraph FAB[RAIA — Fábricas]
+        F1[Consultar estoques no SAP e produzir<br/>conforme o forecast<br/><i>ETAPA MANTIDA</i>]
+    end
+
+    subgraph LOG[RAIA — Operador Logístico]
+        O1[Receber produto após envio, desembaraço<br/>e transporte<br/><i>ETAPA MANTIDA</i>]
+        O2[Produto disponível para venda]
+    end
+
+    I1 --> A1 --> M1 --> M2 --> R1[Aplicar regra de autorização:<br/>ajuste somente é autorizado conforme<br/>o limite mínimo definido pelo Supply Chain Global]
+    I2 -. base para avaliação .-> M1
+    G0 -. define limite .-> R1
+    R1 --> A2 --> L1 --> L2 --> L3 --> L4 --> G1 --> F1 --> L5 --> O1 --> O2
+    G1 --> G2 --> L3
+
+    MET["Métricas de sucesso:<br/>nível de D&O<br/>nível de Lost Sales"]
+    MET -. monitorar .-> A2
+
+    classDef changed fill:#DCFCE7,stroke:#16A34A,color:#14532D,stroke-width:2px;
+    classDef unchanged fill:#F3F4F6,stroke:#64748B,color:#111827;
+    classDef input fill:#E8F3FF,stroke:#2563EB,color:#111827;
+    classDef system fill:#FFF4CC,stroke:#D97706,color:#111827;
+    classDef output fill:#DCFCE7,stroke:#16A34A,color:#14532D,stroke-width:2px;
+    classDef metric fill:#F3E8FF,stroke:#9333EA,color:#581C87;
+    class I1,I2 input;
+    class A1,A2,M1,M2,G0,R1 changed;
+    class L1,L2,L3,L4,L5,G1,G2,F1,O1 unchanged;
+    class O2 output;
+    class MET metric;
