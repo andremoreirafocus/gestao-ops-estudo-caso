@@ -15,7 +15,7 @@ O escopo da melhoria está nas etapas 1 e 2 do processo de previsão de demanda.
 | Mapa TO-BE | [Imagem PNG](to-be-v1.png) · [Fonte Mermaid](to-be-v1.mn) | Mapa futuro. As etapas alteradas estão em verde; as etapas mantidas estão em cinza. |
 | Plano de ação | [planejamento-implementacao-to-be-v4.md](planejamento-implementacao-to-be-v4.md) | Plano vigente: Gate 0, configuração do AERA, testes, simulação, treinamento, contingência, estabilização e riscos com condição de superação e decisão. |
 | Critérios de avaliação | [criterios-avaliacao-plano-acao.md](criterios-avaliacao-plano-acao.md) | Critérios derivados das aulas para validar o plano de ação. |
-| Análise de conformidade | [analise-conformidade-plano-acao.md](analise-conformidade-plano-acao.md) | Avaliação do plano v2 que fundamentou a revisão para as versões v3 e v4. |
+| Análise de conformidade | [analise-conformidade-plano-acao-v4.md](analise-conformidade-plano-acao-v4.md) | Avaliação de conformidade do plano vigente, a v4. |
 
 ## Estrutura recomendada da apresentação
 
