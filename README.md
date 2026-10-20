@@ -10,9 +10,10 @@ O escopo da melhoria está nas etapas 1 e 2 do processo de previsão de demanda.
 
 | Entregável | Artefato | Uso na entrega |
 |---|---|---|
+| Apresentação | [projeto_go_cs_forecast_aera-v3.pptx](projeto_go_cs_forecast_aera-v3.pptx) | Arquivo da apresentação que consolida o problema, os mapas AS-IS e TO-BE, indicadores e plano de ação. |
 | Cenário consolidado | [quadro-cenario-problema-farmaceutica-v3.md](quadro-cenario-problema-farmaceutica-v3.md) | Fonte do problema, processo atual, TO-BE, métricas de sucesso e dados ainda não fornecidos. |
-| Mapa AS-IS | [Imagem PNG](as-is-v4.png) · [Fonte Mermaid](as-is-v4.mn) | Mapeamento do estado atual com entradas, atividades, responsáveis em raias, saída, pontos de dor, desperdício e lead time informado. |
-| Mapa TO-BE | [Imagem PNG](to-be-v1.png) · [Fonte Mermaid](to-be-v1.mn) | Mapa futuro. As etapas alteradas estão em verde; as etapas mantidas estão em cinza. |
+| Mapa AS-IS | [Imagem PNG](as-is-v17.png) · [Fonte Mermaid](as-is-v7.mn) | Mapeamento do estado atual com entradas, atividades, responsáveis em raias, saída, pontos de dor, desperdício e lead time informado. A legenda foi composta na imagem final. |
+| Mapa TO-BE | [Imagem PNG](to-be-v7.png) · [Fonte Mermaid](to-be-v5.mn) | Mapa futuro. As etapas alteradas estão em verde; as etapas mantidas estão em cinza. A legenda foi composta na imagem final. |
 | Plano de ação | [planejamento-implementacao-to-be-v4.md](planejamento-implementacao-to-be-v4.md) | Plano vigente: Gate 0, configuração do AERA, testes, simulação, treinamento, contingência, estabilização e riscos com condição de superação e decisão. |
 | Critérios de avaliação | [criterios-avaliacao-plano-acao.md](criterios-avaliacao-plano-acao.md) | Critérios derivados das aulas para validar o plano de ação. |
 | Análise de conformidade | [analise-conformidade-plano-acao-v4.md](analise-conformidade-plano-acao-v4.md) | Avaliação de conformidade do plano vigente, a v4. |
@@ -25,11 +26,11 @@ O escopo da melhoria está nas etapas 1 e 2 do processo de previsão de demanda.
    - Conflito entre ajustes de Marketing e a necessidade de Supply Chain de reduzir perdas.
 
 2. **AS-IS**
-   - Apresentar [as-is-v4.png](as-is-v4.png).
+   - Apresentar [as-is-v17.png](as-is-v17.png).
    - Destacar que o ciclo é mensal, que o lead time médio até a disponibilidade para venda é de cinco meses e que o gargalo específico não foi localizado pelo cenário.
 
 3. **TO-BE**
-   - Apresentar [to-be-v1.png](to-be-v1.png).
+   - Apresentar [to-be-v7.png](to-be-v7.png).
    - Explicar que o AERA passará a gerar a proposta inicial de forecast a partir do planejamento financeiro por SKU.
    - Explicar que os ajustes de Marketing devem ser justificados e comentados e seguem a regra de autorização definida pelo Supply Chain Global.
 
