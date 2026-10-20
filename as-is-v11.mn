@@ -1,0 +1,83 @@
+%% AS-IS v11 — layout da v7; rótulos de conexão no padrão visual da v6
+%% Fonte factual: quadro-cenario-problema-farmaceutica-v3.md.
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "20px", "edgeLabelBackground": "rgba(232,232,232, 0.8)"}, "themeCSS": ".edgeLabel, .edgeLabel p { font-size: 16px !important; }"}}%%
+
+flowchart LR
+    subgraph IN[ENTRADAS]
+        direction TB
+        I1[Expectativa de vendas<br/>Comercial]
+        I3[Dados internos e<br/>sinais de mercado]
+        I2[Plano financeiro<br/>SAP Analytics Cloud Planning]
+        I4[Estoques local/global e<br/>capacidade de produção]
+        I5[Eventos extraordinários:<br/>concorrência, surtos, bids]
+    end
+
+    subgraph MC[RAIA — Comercial e Marketing]
+        direction TB
+        M1[1. Projetar vendas<br/>para 24 meses<br/><i>Marketing + Comercial • mensal</i>]
+        M2[2. Consolidar e ajustar previsão;<br/>registrar no AERA<br/><i>Marketing • mensal</i>]
+        M3[Alinhar restrições e<br/>assumir risco de perdas<br/><i>Marketing</i>]
+    end
+
+    subgraph AERA[RAIA — Sistema AERA]
+        A1[Consolidar forecasts<br/><i>AERA</i>]
+    end
+
+    subgraph SCL[RAIA — Supply Chain Local]
+        direction TB
+        L1[3. Fazer sanity check<br/>vs. histórico e plano financeiro<br/><i>Supply Chain Local</i>]
+        L2[Checar estoques e<br/>capacidade de produção<br/><i>Supply Chain Local + Global</i>]
+        L3[Comunicar restrições e<br/>alinhar com Marketing<br/><i>Supply Chain Local</i>]
+        L4[Enviar volumes ao<br/>Supply Chain Global<br/><i>Mensal</i>]
+        L5[Definir logística e<br/>conduzir desembaraço<br/><i>Supply Chain Local</i>]
+    end
+
+    subgraph GSF[RAIA — Supply Chain Global e Fábricas]
+        direction TB
+        G1[4. Planejar atendimento<br/>do forecast com fábricas<br/><i>Supply Chain Global + Fábricas</i>]
+        F1[Consultar estoques no SAP<br/>e produzir conforme forecast<br/><i>Fábricas</i>]
+        G2[Comunicar alteração de<br/>programação ao SC Local<br/><i>Supply Chain Global</i>]
+    end
+
+    subgraph LOG[RAIA — Operador Logístico]
+        direction TB
+        O1[5. Transporte, desembaraço<br/>e recebimento do produto<br/><i>Operador Logístico</i>]
+        O2[Produto disponível<br/>para venda]
+    end
+
+    subgraph ANALISE[ANÁLISE DO ESTADO ATUAL]
+        direction TB
+        P1["Etapa 2 — Ponto de dor:<br/>gorduras ou cortes de volume"]
+        P2["Resultado — Ponto de dor:<br/>perda de receita por falta de produto"]
+        W1["Resultado — Desperdício:<br/>produto vencido antes da venda"]
+        B1["Gargalo não localizado:<br/>lead time total de 5 meses"]
+    end
+
+    I1 --> M1
+    I3 --> M2
+    I2 -. informação de referência .-> L1
+    I4 -. informação de referência .-> L2
+    M1 --> M2 --> A1 --> L1 --> L2 --> L3 --> M3 --> L4 --> G1 --> F1 --> L5 --> O1 --> O2
+    G1 --> G2 --> L3
+
+    E1[Buscar alternativas para<br/>capturar oportunidade ou mitigar risco<br/><i>Supply Chain Local + Global</i>]
+    I5 -. evento extraordinário .-> E1
+    E1 -. alternativa / mitigação .-> G1
+
+    M2 -.-> P1
+    O2 -.-> P2
+    O2 -.-> W1
+    O2 -.-> B1
+
+    classDef input fill:#E8F3FF,stroke:#2563EB,color:#111827;
+    classDef activity fill:#F3F4F6,stroke:#475569,color:#111827;
+    classDef system fill:#FFF4CC,stroke:#D97706,color:#111827;
+    classDef output fill:#DCFCE7,stroke:#16A34A,color:#111827;
+    classDef pain fill:#FEE2E2,stroke:#DC2626,color:#7F1D1D;
+    classDef bottleneck fill:#FEF3C7,stroke:#D97706,color:#78350F;
+    class I1,I2,I3,I4,I5 input;
+    class M1,M2,M3,L1,L2,L3,L4,L5,G1,F1,G2,O1,E1 activity;
+    class A1 system;
+    class O2 output;
+    class P1,P2,W1 pain;
+    class B1 bottleneck;

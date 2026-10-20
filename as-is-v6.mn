@@ -1,0 +1,84 @@
+%% AS-IS v6 — Planejamento de demanda e abastecimento farmacêutico
+%% Critérios: Aula 03 - MBA - GO e SC digital vf5.pdf, página 25.
+%% Fonte factual: quadro-cenario-problema-farmaceutica-v3.md.
+%% Layout em paisagem para apresentação, preservando entradas, raias, fluxo e análise.
+
+flowchart LR
+    subgraph IN[ENTRADAS]
+        direction TB
+        I1[Expectativa de vendas<br/>da equipe Comercial]
+        I3[Dados internos e humor do mercado<br/>percebido pelo Marketing]
+        I2[Plano financeiro<br/>SAP Analytics Cloud Planning]
+        I4[Estoque local, estoque global e<br/>capacidade de produção]
+        I5[Sinais de evento extraordinário:<br/>concorrência, surtos, licitações/bids]
+    end
+
+    subgraph MC[RAIA — Comercial e Marketing]
+        direction TB
+        M1[1. Coletar expectativa de vendas e<br/>projetar os próximos 24 meses<br/><i>Marketing + Comercial — mensal</i>]
+        M2[2. Consolidar dados, fazer ajustes finos e<br/>inserir previsão de demanda no AERA<br/><i>Gerente de Marketing — mensal</i>]
+        M3[Alinhar restrições/delays com Supply Chain Local<br/>e assumir risco de eventuais perdas<br/><i>Marketing</i>]
+    end
+
+    subgraph AERA[RAIA — Sistema AERA]
+        A1[Consolidar as previsões de demanda<br/><i>AERA</i>]
+    end
+
+    subgraph SCL[RAIA — Supply Chain Local]
+        direction TB
+        L1[3. Realizar sanity check da base geral<br/>contra histórico de demanda e compromisso financeiro<br/><i>Supply Chain Local</i>]
+        L2[Avaliar disponibilidade de estoque local/global<br/>e capacidade de produção com Supply Chain Global<br/><i>Supply Chain Local + Global</i>]
+        L3[Informar restrições/delays conhecidos e<br/>alinhar com Marketing<br/><i>Supply Chain Local</i>]
+        L4[Enviar volumes ao Supply Chain Global<br/><i>Supply Chain Local — mensal</i>]
+        L5[Definir estratégia logística e conduzir o<br/>desembaraço via despachante contratado<br/><i>Supply Chain Local</i>]
+    end
+
+    subgraph GSF[RAIA — Supply Chain Global e Fábricas]
+        direction TB
+        G1[4. Planejar o atendimento ao forecast e<br/>trabalhar com as fábricas<br/><i>Supply Chain Global + Fábricas</i>]
+        F1[Consultar no SAP estoques do Brasil, da fábrica<br/>e em trânsito; produzir conforme o forecast<br/><i>Fábricas</i>]
+        G2[Informar alteração de programação ao<br/>Supply Chain Local<br/><i>Supply Chain Global</i>]
+    end
+
+    subgraph LOG[RAIA — Operador Logístico]
+        direction TB
+        O1[5. Receber produto após envio por navio ou aéreo,<br/>desembaraço e transporte<br/><i>Operador Logístico</i>]
+        O2[Produto disponível para venda<br/><i>Operador Logístico</i>]
+    end
+
+    subgraph ANALISE[ANÁLISE DO ESTADO ATUAL]
+        direction TB
+        P1["Etapa 2 — Ponto de dor:<br/>ajustes finos podem incluir gorduras ou cortes de volume"]
+        P2["Resultado — Ponto de dor:<br/>perda de receita por falta de produto<br/>para atender à demanda"]
+        W1["Resultado — Desperdício informado:<br/>produto vencido antes de ser comercializado,<br/>com perda financeira"]
+        B1["Resultado — Gargalo não localizado no cenário:<br/>lead time médio total até a disponibilidade<br/>para venda é de 5 meses"]
+    end
+
+    I1 --> M1
+    I3 --> M2
+    I2 -. informação de referência .-> L1
+    I4 -. informação de referência .-> L2
+    M1 --> M2 --> A1 --> L1 --> L2 --> L3 --> M3 --> L4 --> G1 --> F1 --> L5 --> O1 --> O2
+    G1 --> G2 --> L3
+
+    E1[Buscar alternativas para capturar oportunidade<br/>ou mitigar risco<br/><i>Supply Chain Local + Global</i>]
+    I5 -. evento extraordinário .-> E1
+    E1 -. alternativa / mitigação .-> G1
+
+    M2 -.-> P1
+    O2 -.-> P2
+    O2 -.-> W1
+    O2 -.-> B1
+
+    classDef input fill:#E8F3FF,stroke:#2563EB,color:#111827;
+    classDef activity fill:#F3F4F6,stroke:#475569,color:#111827;
+    classDef system fill:#FFF4CC,stroke:#D97706,color:#111827;
+    classDef output fill:#DCFCE7,stroke:#16A34A,color:#111827;
+    classDef pain fill:#FEE2E2,stroke:#DC2626,color:#7F1D1D;
+    classDef bottleneck fill:#FEF3C7,stroke:#D97706,color:#78350F;
+    class I1,I2,I3,I4,I5 input;
+    class M1,M2,M3,L1,L2,L3,L4,L5,G1,F1,G2,O1,E1 activity;
+    class A1 system;
+    class O2 output;
+    class P1,P2,W1 pain;
+    class B1 bottleneck;
